@@ -21,13 +21,13 @@ pipeline {
 	} 
 	post {
 		always {
-			echo "Run always"
+			echo "Run always."
 		}
 		success {
-			echo "Run on success"
+			echo "Run on success."
 		}
 		failure {
-			echo "Run on failure"
+			echo "Run on failure."
 		}
 
 	}
