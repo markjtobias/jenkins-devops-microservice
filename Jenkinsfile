@@ -1,13 +1,18 @@
 
 //DECLARATIVE
 pipeline {
-	//agent any
-	agent { docker { image 'maven:3.8.6-jdk-11'}}
+	agent any
+	//agent { docker { image 'maven:3.8.6-jdk-11'}}
 	stages {
 		stage('Build') {
 			steps {
-				echo "mvn --version"
-				sh 'mvn --version'
+				//echo "mvn --version"
+				//sh 'mvn --version'
+				echo "BUILD_NUMBER $env.BUILD_NUMBER"
+				echo "BUILD_ID $env.BUILD_ID"
+				echo "JOB_NAME $env.JOB_NAME"
+				echo "BUILD_TAG $env.BUILD_TAG"
+				echo "BUILD_URL $env.BUILD_URL"
 			}
 		}
 		stage('Test') {
@@ -24,7 +29,6 @@ pipeline {
 	post {
 		always {
 			echo "Run always."
-			sh 'docker system prune'
 		}
 		success {
 			echo "Run on success."
