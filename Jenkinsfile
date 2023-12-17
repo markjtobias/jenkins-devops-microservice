@@ -24,6 +24,7 @@ pipeline {
 	post {
 		always {
 			echo "Run always."
+			sh 'docker system prune'
 		}
 		success {
 			echo "Run on success."
